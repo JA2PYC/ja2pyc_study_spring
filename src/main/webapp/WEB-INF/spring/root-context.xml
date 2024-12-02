@@ -34,5 +34,5 @@
 		base-package="org.ja2pyc.mapper" />
 	<context:component-scan
 		base-package="org.ja2pyc.sample"></context:component-scan>
-	<context:component-scan base-package="org.ja2ypc.service"></context:component-scan>
+	<context:component-scan base-package="org.ja2pyc.service"></context:component-scan>
 </beans>

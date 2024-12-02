@@ -22,20 +22,26 @@ public class BoardMapperTests {
 		mapper.getList().forEach(board -> log.info(board));
 	}
 
-	// @Test
+	@Test
 	public void testInsert() {
 		BoardVO board = new BoardVO();
-		board.setTblBoardTitle("테스트 제목 1");
-		board.setTblBoardContent("테스트 내용 1");
-		board.setTblBoardWriter("테스트 작성자 1");
+		board.setTblBoardTitle("테스트 제목 Insert 2");
+		board.setTblBoardContent("테스트 내용 Insert 2");
+		board.setTblBoardWriter("테스트 작성자 Insert 2");
 
 		mapper.insert(board);
 		log.info(board);
 	}
 
-	// @Test
+	@Test
 	public void testInsertSelectKey() {
+		BoardVO board = new BoardVO();
+		board.setTblBoardTitle("테스트 제목 SelectKey 2");
+		board.setTblBoardContent("테스트 내용 SelectKey 2");
+		board.setTblBoardWriter("테스트 작성자 SelectKey 2");
 
+		mapper.insert(board);
+		log.info(board);
 	}
 
 	// @Test
@@ -49,7 +55,7 @@ public class BoardMapperTests {
 		log.info("DELETE : " + mapper.delete(6));
 	}
 
-	@Test
+	// @Test
 	public void testUpdate() {
 		BoardVO board = new BoardVO();
 		board.setTblBoardId(7);

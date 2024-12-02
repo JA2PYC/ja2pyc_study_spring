@@ -5,7 +5,7 @@
 <mapper namespace="org.ja2pyc.mapper.BoardMapper">
 	<select id="getList" resultType="org.ja2pyc.domain.BoardVO">
 		<![CDATA[
-			SELECT * FROM tbl_board WHERE tblBoardId >= 0 LIMIT 10
+			SELECT * FROM tbl_board WHERE tblBoardId >= 0 LIMIT 100
 		]]>
 	</select>
 
@@ -15,7 +15,7 @@
 		#{tblBoardContent}, #{tblBoardWriter})
 	</insert>
 
-	<insert id="insertSelectKey">
+	<insert id="insertSelectKey" useGeneratedKeys="true" keyProperty="tblBoardId">
 		INSERT INTO tbl_board (tblBoardTitle,
 		tblBoardContent, tblBoardWriter) VALUES (#{tblBoardTitle},
 		#{tblBoardContent}, #{tblBoardWriter})
