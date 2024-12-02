@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ja2pyc.mapper.BoardMapper">
+	<select id="getList" resultType="org.ja2pyc.domain.BoardVO">
+		<![CDATA[
+			SELECT * FROM tbl_board WHERE tblBoardId >= 0 LIMIT 100
+		]]>
+	</select>
+
+	<insert id="insert">
+		INSERT INTO tbl_board (tblBoardId, tblBoardTitle,
+		tblBoardContent, tblBoardWriter) VALUES (NULL, #{tblBoardTitle},
+		#{tblBoardContent}, #{tblBoardWriter})
+	</insert>
+
+	<insert id="insertSelectKey" useGeneratedKeys="true" keyProperty="tblBoardId">
+		INSERT INTO tbl_board (tblBoardTitle,
+		tblBoardContent, tblBoardWriter) VALUES (#{tblBoardTitle},
+		#{tblBoardContent}, #{tblBoardWriter})
+	</insert>
+
+	<select id="read" resultType="org.ja2pyc.domain.BoardVO">
+		SELECT * FROM tbl_board WHERE
+		tblBoardId = #{tblBoardId}
+	</select>
+
+	<delete id="delete">
+		DELETE FROM tbl_board WHERE tblBoardId =
+		#{tblBoardId}
+	</delete>
+
+	<update id="update">
+		UPDATE tbl_board SET tblBoardTitle=#{tblBoardTitle},
+		tblBoardContent=#{tblBoardContent}, tblBoardWriter=#{tblBoardWriter}
+		WHERE tblBoardId=#{tblBoardId}
+	</update>
+
+</mapper>
