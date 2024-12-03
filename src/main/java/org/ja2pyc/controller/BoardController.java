@@ -48,7 +48,8 @@ public class BoardController {
 
 	@PostMapping("/modify")
 	public String modify(BoardVO board, RedirectAttributes rttr) {
-		log.info("modify" + board);
+		System.out.println("--------------------Modify Controller--------------------");
+		log.info("modify : " + board);
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}
