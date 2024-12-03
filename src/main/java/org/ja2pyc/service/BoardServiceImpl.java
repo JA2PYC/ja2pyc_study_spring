@@ -36,6 +36,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public boolean modify(BoardVO board) {
 		// TODO Auto-generated method stub
+		System.out.println("--------------------Modify Service--------------------");
 		log.info("BoardServiceImpl : modify" + board);
 		return mapper.update(board) == 1;
 	}

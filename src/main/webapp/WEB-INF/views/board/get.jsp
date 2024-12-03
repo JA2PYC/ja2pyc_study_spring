@@ -44,16 +44,31 @@
 									value='<c:out value="${board.tblBoardWriter }" />'
 									readonly="readonly">
 							</div>
-							<button data-oper="modify" class="btn btn-default"
-								onclick="location.href='/board/modify?boardId=<c:out value="${board.tblBoardId }" />'">Modify</button>
-							<button data-oper="list" class="btn btn-info"
-								onclick="location.href='/board/list'">List</button>
+							<button data-oper="modify" class="btn btn-default">Modify</button>
+							<button data-oper="list" class="btn btn-info">List</button>
+							<form action="/board/modify" method="get" id="operForm">
+								<input type="hidden" id="boardId" name="boardId"
+									value='<c:out value="${board.tblBoardId }" />'>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			let operForm = $("#operForm");
+			$("button[data-oper='modify']").on("click", function(e) {
+				operForm.attr("action", "/board/modify").submit();
+			});
+			$("button[data-oper='list']").on("click", function(e) {
+				operForm.find("#boardId").remove();
+				operForm.attr("action", "/board/list");
+				operForm.submit();
+			});
+		});
+	</script>
 	<jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>
 </body>
 </html>
